@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zihan Lin’s personal homepage and links.">
+  <title>Zihan Lin · Personal Homepage</title>
+  <style>
+    :root {
+      color-scheme: light;
+      color: #202723;
+      background: #faf9f6;
+      font-family: system-ui, sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    main {
+      max-width: 38rem;
+      margin-inline: auto;
+      padding: clamp(3rem, 12vh, 7rem) 1.5rem 3rem;
+      overflow-wrap: anywhere;
+    }
+
+    .page-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 0 0 1rem;
+    }
+
+    .label {
+      margin: 0;
+      color: #455c51;
+      font-size: .875rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    #language-switch {
+      border: 1px solid #aabbb0;
+      border-radius: .5rem;
+      padding: .4rem .75rem;
+      color: #225540;
+      background: transparent;
+      font: inherit;
+      font-size: .875rem;
+      cursor: pointer;
+    }
+
+    #language-switch:hover {
+      background: #edf1eb;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 8vw, 4rem);
+      line-height: 1.18;
+    }
+
+    .intro {
+      margin: 1rem 0 0;
+      color: #4d5751;
+      font-size: 1.125rem;
+      line-height: 1.8;
+    }
+
+    section {
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #d6ded7;
+    }
+
+    h2 {
+      margin: 0 0 .6rem;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-inline-start: 1.25rem;
+      line-height: 1.65;
+    }
+
+    .note {
+      margin: 1.25rem 0 0;
+      color: #4d5751;
+      line-height: 1.65;
+    }
+
+    a {
+      display: inline-block;
+      padding-block: .4rem;
+      color: #225540;
+      font-weight: 600;
+      text-underline-offset: .25em;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="page-heading">
+        <p class="label">Personal homepage</p>
+        <button id="language-switch" type="button" lang="zh-CN" aria-controls="introduction" hidden>中文</button>
+      </div>
+      <h1>Zihan Lin</h1>
+    </header>
+
+    <div id="introduction">
+      <div id="intro-en" lang="en">
+        <p class="intro">I’m interested in learning more about embodied AI.</p>
+        <section aria-labelledby="education-en">
+          <h2 id="education-en">Education</h2>
+          <ul>
+            <li>Undergraduate studies at Zhejiang University</li>
+            <li>Master’s studies in integrated circuits at Peking University</li>
+          </ul>
+        </section>
+        <p class="note">This little site is mostly a place to park my links. Thanks for stopping by and humoring me. xixi (●'◡'●)</p>
+      </div>
+
+      <div id="intro-zh" lang="zh-CN" hidden>
+        <p class="intro">目前想往具身智能方向学习。</p>
+        <section aria-labelledby="education-zh">
+          <h2 id="education-zh">教育经历</h2>
+          <ul>
+            <li>浙江大学本科</li>
+            <li>北京大学集成电路专业硕士</li>
+          </ul>
+        </section>
+        <p class="note">这是个用来放链接的小主页。感谢你的访问，让你见笑了。xixi (●'◡'●)</p>
+      </div>
+    </div>
+
+    <section aria-labelledby="links">
+      <h2 id="links">Links</h2>
+      <ul>
+        <li><a href="https://github.com/lnzhn">GitHub <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    const languageSwitch = document.getElementById('language-switch');
+    const englishIntro = document.getElementById('intro-en');
+    const chineseIntro = document.getElementById('intro-zh');
+
+    languageSwitch.addEventListener('click', () => {
+      const showChinese = chineseIntro.hidden;
+      englishIntro.hidden = showChinese;
+      chineseIntro.hidden = !showChinese;
+      languageSwitch.textContent = showChinese ? 'English' : '中文';
+      languageSwitch.lang = showChinese ? 'en' : 'zh-CN';
+    });
+
+    languageSwitch.hidden = false;
+  </script>
+</body>
+</html>
